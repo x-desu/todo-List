@@ -1,0 +1,218 @@
+:root{
+   
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: monospace;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background: rgba(0, 0, 0,0.85);
+    color: white;
+}
+
+header{
+    padding: 2rem 1rem;
+    max-width: 800px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+header h1{
+    font-size: 2.5rem;
+    font-weight: 900;
+    margin-bottom: 1rem;
+}
+
+#taskForm{
+    display: flex;
+}
+
+input,button{
+    appearance: none;
+    border: none;
+    outline: none;
+    background: none;
+}
+
+#taskForm input{
+    flex: 1 1 ;
+    background-color: rgb(87, 83, 78);
+    padding: 1rem;
+    border-radius: 1rem;
+    margin-right: 1rem;
+    font-size: 1.35rem;
+    color:rgb(182, 154, 118)
+}
+
+#taskForm input::placeholder{
+    color: inherit;
+}
+
+#input-Submit{
+    color:rgb(255, 255, 255);
+    font-size: 1.25rem;
+    font-weight: 700;
+    background: linear-gradient(90deg, rgb(226, 193, 102) 0%, crimson 38% );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+
+#input-Submit:hover{
+    opacity: 0.8;
+    filter: drop-shadow(2px 2px 2px rgba(0, 0, 0,0.3));
+}
+
+#input-Submit:active{
+    scale: 0.95;
+}
+
+main{
+    padding: 2rem 1rem;
+    max-width: 700px;
+    width: 100%;
+    margin:0 auto;
+    
+    
+}
+
+.task-list{
+    padding: 1rem;
+    
+}
+
+.task-list h2{
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    
+    display: flex;
+    justify-content: space-between;
+}
+
+.h2{
+    opacity: 0.6;
+}
+
+.task-list #clear{
+    opacity: 1;
+    margin-right: 50px;
+    background: linear-gradient(90deg, rgb(226, 193, 102) 0%, crimson 58% );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#clear:active{
+    scale: 0.94;
+}
+
+.task{
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(63, 58, 51);
+    padding: 1rem;
+    border-radius: 1rem;
+    margin-bottom: 1rem;
+}
+
+
+.content{
+    width: 100%;    
+}
+
+.check{
+    width: 22px;
+    height: 20px;
+    margin-right: 5px;
+    
+
+}
+
+textarea.line{
+    text-decoration: line-through;
+}
+.fa-solid{
+    color: crimson;
+}
+
+i{
+    width: 22px;
+    height: 20px;
+    margin-right: 10px;
+}
+
+.content .text{
+    font-size: 1.32rem;
+    color: inherit;
+    width: 100%;
+    display: block;
+    transition: 0.4s;
+    color: bisque;
+    
+}
+
+.checked .text{
+    text-decoration: line-through crimson 3px;
+
+}
+textarea{
+    background: none;
+    border: none;
+    resize: none;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    font-size: 1.42rem;
+}
+
+textarea:focus{
+    border: none;
+    outline: none;
+}
+.content .text:not(:read-only){
+    color:crimson;
+} 
+
+.task .actions{
+    display: flex;
+    margin: 0 -0.5rem;
+}
+
+.task .actions button{
+    cursor: pointer;
+    margin: 0 0.5rem;
+    font-size: 1.125rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    transition: 0.4s;
+}
+
+.task .actions button:hover{
+    opacity: 0.8;
+}
+
+.task .actions button:active{
+    opacity: 0.6;
+    scale: 1.15;
+}
+
+.task .actions .edit{
+    background: linear-gradient(90deg, rgb(226, 193, 102) 0%, crimson 68% );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.task .actions .delete{
+    background: linear-gradient(90deg, rgb(226, 193, 102) 0%, crimson 40% );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
