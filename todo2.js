@@ -54,8 +54,15 @@ function saveTodo(){
 
 function renderTodos(){
     todolist.innerHTML = ''
+    if(todos.length === 0){
+        todolist.innerHTML = `
+        <h2><span class="h2">Nothing to do</span></h2>
+        `
+    }
     todos.forEach((todo, index)=>{
+        if(index === 0){
         todolist.innerHTML += `
+        <h2><span class="h2">Task</span> <span id="clear" >clear all</span></h2>
         <div class="task" id=${index}>
         <div>
         <i class="fa-circle ${todo.checked ?'fa-solid':'fa-regular'} check" data-action="checked">
@@ -70,7 +77,23 @@ function renderTodos(){
         </div>
         </div>`
 
-    })
+    }else{
+        todolist.innerHTML += `
+        <div class="task" id=${index}>
+        <div>
+        <i class="fa-circle ${todo.checked ?'fa-solid':'fa-regular'} check" data-action="checked">
+        </i>
+        </div>
+        <div class="content">
+            <textarea data-actions="checked" type="text" class="text ${todo.line ?'line':''}" ${todo.edit ?'':'readonly'}>${todo.value}</textarea>
+        </div>
+        <div class="actions">
+            <button class="edit" data-action="edit">edit</button>
+            <button class="delete" data-action="delete">delete</button>
+        </div>
+        </div>`
+    }
+})
 
     localStorage.setItem('todos', JSON.stringify(todos))
 
@@ -83,6 +106,10 @@ todolist.addEventListener('click', (e)=>{
     const target = e.target;
     const todo = target.parentElement.parentElement;
     
+    if(target.id === 'clear'){
+        
+        clearAllTodos()
+    }
     if(todo.className !== 'task') return;
 
         const todoId = Number(todo.id)
@@ -98,10 +125,11 @@ todolist.addEventListener('click', (e)=>{
         if(action === 'delete'){
             deleteTodo(todoId,e)
         }
-    
 
-         
-    
+        
+
+        
+        
     
 })
 //check todo
@@ -119,7 +147,7 @@ function checkTodo(todoId,e){
         todos[todoId].line = false;
     }
     
-    console.log(todos)
+    
     
     renderTodos()
 }
@@ -153,6 +181,13 @@ function deleteTodo(todoId,e){
     renderTodos()
 
 }
+
+//clear all todos
+function clearAllTodos(){
+    todos = [];
+    renderTodos()
+}
+
 
 
 
